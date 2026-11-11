@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int choice, quantity;
+    string food;
+    int price, subtotal, discount, total;
+
+    cout << "=== MAIN MENU ===\n";
+    cout << "1. Burger - PHP50\n";
+    cout << "2. Sandwich - PHP40\n";
+    cout << "3. Fried Rice - PHP65\n";
+    cout << "4. Spaghetti - PHP55\n";
+
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            food = "Burger";
+            price = 50;
+            break;
+
+        case 2:
+            food = "Sandwich";
+            price = 40;
+            break;
+
+        case 3:
+            food = "Fried Rice";
+            price = 65;
+            break;
+
+        case 4:
+            food = "Spaghetti";
+            price = 55;
+            break;
+
+        default:
+            cout << "Invalid Menu Selection!\n";
+            return 0;
+    }
+
+    cout << "Enter quantity: ";
+    cin >> quantity;
+
+    if (quantity > 0) {
+        subtotal = price * quantity;
+
+        if (subtotal >= 300) {
+            discount = subtotal * 0.10;
+        } else {
+            discount = 0;
+        }
+
+        total = subtotal - discount;
+
+        cout << "\n=== ORDER SUMMARY ===\n";
+        cout << "Food: " << food << "\n";
+        cout << "Price: PHP " << price << "\n";
+        cout << "Quantity: " << quantity << "\n";
+        cout << "Subtotal: PHP " << subtotal << "\n";
+        cout << "Discount: PHP " << discount << "\n";
+        cout << "Total Amount: PHP " << total << "\n";
+        cout << "=====\n";
+
+    } else {
+        cout << "Invalid quantity. Quantity must be greater than 0.\n";
+    }
+
+    return 0;
+}
